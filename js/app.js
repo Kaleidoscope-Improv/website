@@ -149,24 +149,21 @@ function setupNavbar() {
         }
     });
 
-    // Mobile menu stub
+    // Mobile menu toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    if(mobileBtn) {
+    if(mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            // Very simple mobile toggle logic for now
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'rgba(8, 5, 15, 0.95)';
-                navLinks.style.padding = '1rem';
-            }
+            navLinks.classList.toggle('active');
+            mobileBtn.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileBtn.classList.remove('active');
+            });
         });
     }
 }

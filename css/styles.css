@@ -243,8 +243,25 @@ a {
     transition: width 0.3s ease;
 }
 
-.nav-links a:not(.btn-primary):hover::after {
-    width: 100%;
+.nav-links a.btn-primary:hover::after {
+    display: none;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    width: 30px;
+    height: 3px;
+    background: #000;
+    border-radius: 2px;
+    transition: 0.3s;
 }
 
 .nav-links a.btn-primary {
@@ -615,8 +632,45 @@ a {
 }
 
 @media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex; /* Show hamburger on mobile */
+    }
+    
     .nav-links {
-        display: none; /* simple mobile hide for now */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--bg-darker);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: #000000 !important;
+        font-size: 1.1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
     
     .hero-actions {
@@ -631,5 +685,23 @@ a {
     
     .show-details {
         margin: 0;
+    }
+    
+    .cast-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .cast-img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Disable animation on mobile to prevent elements failing to intersect and appearing as white space */
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
     }
 }
