@@ -2,20 +2,28 @@
     /* Color Palette - Original Wix Scheme */
     --bg-dark: #ffffff;
     --bg-darker: #f9f9f9;
-    --primary: #02704B; /* Emerald Green */
-    --secondary: #A8DEEA; /* Light Blue */
-    --accent: #FE2106; /* Vibrant Red */
-    --text-light: #000000; /* Main Text */
-    --text-muted: #555555; /* Secondary Text */
-    
+    --primary: #02704B;
+    /* Emerald Green */
+    --secondary: #A8DEEA;
+    /* Light Blue */
+    --accent: #FE2106;
+    /* Vibrant Red */
+    --text-light: #000000;
+    /* Main Text */
+    --text-muted: #555555;
+    /* Secondary Text */
+
     /* Subtle Glassmorphism for light theme */
     --glass-bg: rgba(255, 255, 255, 1);
     --glass-border: transparent;
     --glass-shadow: none;
 
     /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-heading: 'EB Garamond', serif;
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-nav: 'Space Grotesk', sans-serif;
+    --font-label: 'Raleway', sans-serif;
+    --font-display: 'Oswald', sans-serif;
 
     /* Transitions */
     --transition-fast: 0.2s ease;
@@ -41,11 +49,22 @@ body {
 }
 
 /* Typography base */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: var(--font-heading);
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+/* Ensure all paragraph and body copy uses Space Grotesk sitewide */
+p,
+li,
+span:not(.kaleido-text span) {
+    font-family: var(--font-body);
 }
 
 .gradient-text {
@@ -60,11 +79,32 @@ h1, h2, h3, h4 {
 .kaleido-text {
     display: inline-block;
 }
-.kaleido-text span:nth-child(5n+1) { color: #E85D04; } /* Orange */
-.kaleido-text span:nth-child(5n+2) { color: #A8DEEA; } /* Light Blue */
-.kaleido-text span:nth-child(5n+3) { color: #02704B; } /* Dark Green */
-.kaleido-text span:nth-child(5n+4) { color: #F87CA9; } /* Pink */
-.kaleido-text span:nth-child(5n+5) { color: #FABC05; } /* Yellow */
+
+.kaleido-text span:nth-child(5n+1) {
+    color: #E85D04;
+}
+
+/* Orange */
+.kaleido-text span:nth-child(5n+2) {
+    color: #A8DEEA;
+}
+
+/* Light Blue */
+.kaleido-text span:nth-child(5n+3) {
+    color: #02704B;
+}
+
+/* Dark Green */
+.kaleido-text span:nth-child(5n+4) {
+    color: #F87CA9;
+}
+
+/* Pink */
+.kaleido-text span:nth-child(5n+5) {
+    color: #FABC05;
+}
+
+/* Yellow */
 
 a {
     color: inherit;
@@ -94,7 +134,10 @@ a {
 .btn::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     transition: opacity 0.3s ease;
     opacity: 0;
@@ -117,7 +160,8 @@ a {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(246, 4, 25, 0.3); /* Vibrant Red shadow */
+    box-shadow: 0 6px 20px rgba(246, 4, 25, 0.3);
+    /* Vibrant Red shadow */
 }
 
 .btn-secondary {
@@ -226,9 +270,11 @@ a {
 }
 
 .nav-link {
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-family: var(--font-nav);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     position: relative;
 }
 
@@ -265,7 +311,8 @@ a {
 }
 
 .nav-links a.btn-primary {
-    color: #ffffff;  /* Override nav-link black color */
+    color: #ffffff;
+    /* Override nav-link black color */
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     background: var(--primary);
@@ -274,7 +321,8 @@ a {
 
 .nav-links a.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(246, 4, 25, 0.3); /* Vibrant Red shadow */
+    box-shadow: 0 6px 20px rgba(246, 4, 25, 0.3);
+    /* Vibrant Red shadow */
 }
 
 .nav-links a.btn-primary:hover::after {
@@ -286,7 +334,8 @@ a {
    Hero Section Natively Written Reviews
    ========================================= */
 .hero-native {
-    background-color: #000000; /* Dark background as requested */
+    background-color: #000000;
+    /* Dark background as requested */
     min-height: 50vh;
     padding: 80px 5% 40px 5%;
     display: flex;
@@ -314,25 +363,42 @@ a {
 }
 
 .rev:hover {
-    transform: scale(1.05); /* subtle interaction */
+    transform: scale(1.05);
+    /* subtle interaction */
 }
 
 /* Typography styles matching the dark background */
 .rev.text-dark {
-    color: #444; /* Darker grey */
+    color: #444;
+    /* Darker grey */
     font-weight: 700;
 }
 
 .rev.text-light {
-    color: #888; /* Lighter grey */
+    color: #888;
+    /* Lighter grey */
     font-weight: 400;
 }
 
-.rev.size-xl { font-size: clamp(1.5rem, 3vw, 2.5rem); }
-.rev.size-l { font-size: clamp(1.2rem, 2vw, 1.8rem); }
-.rev.size-m { font-size: clamp(0.9rem, 1.5vw, 1.3rem); }
-.rev.size-s { font-size: clamp(0.7rem, 1vw, 1rem); }
-.rev.size-xs { font-size: clamp(0.6rem, 0.8vw, 0.8rem); }
+.rev.size-xl {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.rev.size-l {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+.rev.size-m {
+    font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+}
+
+.rev.size-s {
+    font-size: clamp(0.7rem, 1vw, 1rem);
+}
+
+.rev.size-xs {
+    font-size: clamp(0.6rem, 0.8vw, 0.8rem);
+}
 
 .hero-logo-wrapper {
     flex: 0 1 450px;
@@ -347,7 +413,7 @@ a {
     width: 100%;
     max-width: 400px;
     height: auto;
-    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
 }
 
 /* Vertical text styles for extra artistic flair */
@@ -372,12 +438,15 @@ a {
     color: var(--text-muted);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    font-family: var(--font-body);
+    line-height: 1.8;
 }
 
 .about-text .lead {
     color: var(--text-light);
     font-size: 1.3rem;
     font-weight: 400;
+    font-family: var(--font-body);
 }
 
 .about-visual h3 {
@@ -470,7 +539,8 @@ a {
 .cast-img {
     width: 200px;
     height: 200px;
-    border-radius: 50%; /* Restoring perfect circles to hide original raw image cuts/lines */
+    border-radius: 50%;
+    /* Restoring perfect circles to hide original raw image cuts/lines */
     object-fit: cover;
     margin-bottom: 1.5rem;
     border: none;
@@ -500,6 +570,7 @@ a {
 
 .cast-info h3 {
     font-size: 1.4rem;
+    font-family: var(--font-label);
     margin-bottom: 0.2rem;
     color: var(--text-light);
 }
@@ -508,7 +579,7 @@ a {
     font-size: 0.8rem;
     color: var(--text-muted);
     font-weight: normal;
-    font-family: var(--font-body);
+    font-family: var(--font-label);
 }
 
 .cast-info .role {
@@ -519,11 +590,12 @@ a {
     letter-spacing: 1px;
     margin-bottom: 1rem;
     font-weight: 600;
+    font-family: var(--font-label);
 }
 
 .cast-info p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.80rem;
 }
 
 /* Footer */
@@ -531,7 +603,7 @@ a {
     padding: 4rem 5%;
     background: #111;
     color: #cccccc;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-grid {
@@ -548,7 +620,8 @@ a {
     margin-bottom: 1rem;
 }
 
-.footer-newsletter h4, .footer-links h4 {
+.footer-newsletter h4,
+.footer-links h4 {
     margin-bottom: 1rem;
     color: #ffffff;
 }
@@ -576,7 +649,7 @@ a {
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 2rem;
     color: #cccccc;
     font-size: 0.9rem;
@@ -598,7 +671,7 @@ a {
 .spinner {
     width: 40px;
     height: 40px;
-    border: 3px solid rgba(255,255,255,0.1);
+    border: 3px solid rgba(255, 255, 255, 0.1);
     border-top-color: var(--primary);
     border-radius: 50%;
     animation: spin 1s infinite linear;
@@ -606,7 +679,9 @@ a {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .fade-in {
@@ -625,7 +700,7 @@ a {
     .about-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .footer-grid {
         grid-template-columns: 1fr;
     }
@@ -633,9 +708,10 @@ a {
 
 @media (max-width: 768px) {
     .mobile-menu-btn {
-        display: flex; /* Show hamburger on mobile */
+        display: flex;
+        /* Show hamburger on mobile */
     }
-    
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -646,7 +722,7 @@ a {
         background: #ffffff;
         padding: 2rem;
         gap: 1.5rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         border-top: 1px solid var(--bg-darker);
     }
 
@@ -672,32 +748,32 @@ a {
     .mobile-menu-btn.active span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
     }
-    
+
     .hero-actions {
         flex-direction: column;
     }
-    
+
     .show-card {
         flex-direction: column;
         align-items: flex-start;
         gap: 1.5rem;
     }
-    
+
     .show-details {
         margin: 0;
     }
-    
+
     .cast-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    
+
     .cast-img {
         width: 150px;
         height: 150px;
         margin-bottom: 1rem;
     }
-    
+
     /* Disable animation on mobile to prevent elements failing to intersect and appearing as white space */
     .fade-in {
         opacity: 1 !important;
