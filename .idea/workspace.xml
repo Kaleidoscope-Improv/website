@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/angie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/brian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/jason.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/jenna.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/joseph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/joseph_pierce.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/juan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/katie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/michelle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/paolo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/taylor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/tina.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -75,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1773504902575</updated>
       <workItem from="1773504903756" duration="3815000" />
-      <workItem from="1774279306765" duration="2553000" />
+      <workItem from="1774279306765" duration="5755000" />
     </task>
     <servers />
   </component>
