@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Bright Retro';
+    src: url('../assets/bright-demo.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Color Palette - Original Wix Scheme */
     --bg-dark: #ffffff;
@@ -19,7 +27,7 @@
     --glass-shadow: none;
 
     /* Typography */
-    --font-heading: 'EB Garamond', serif;
+    --font-heading: 'Bright Retro', serif;
     --font-body: 'Space Grotesk', sans-serif;
     --font-nav: 'Space Grotesk', sans-serif;
     --font-label: 'Raleway', sans-serif;
@@ -54,7 +62,7 @@ h2,
 h3,
 h4 {
     font-family: var(--font-heading);
-    font-weight: 600;
+    font-weight: normal;
     line-height: 1.2;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
@@ -555,12 +563,12 @@ a {
 .cast-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .cast-card {
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -573,7 +581,7 @@ a {
     border-radius: 50%;
     /* Restoring perfect circles to hide original raw image cuts/lines */
     object-fit: cover;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     border: none;
     box-shadow: none;
 }
