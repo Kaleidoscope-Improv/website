@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kaleidowebsite.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/hero-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/hero-bg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_fonts_about.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_fonts_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_hero_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_hero_bg_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_v_about.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_v_cast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/screenshot_v_shows.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify_all_fonts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify_fonts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify_hero_bg.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify_hero_scroll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +50,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.32098.39" />
       </set>
     </attachedChunks>
   </component>
@@ -77,7 +61,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1773504902575</updated>
-      <workItem from="1773504903756" duration="3210000" />
+      <workItem from="1773504903756" duration="3815000" />
+      <workItem from="1774279306765" duration="1107000" />
     </task>
     <servers />
   </component>
