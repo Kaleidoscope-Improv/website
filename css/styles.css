@@ -867,11 +867,16 @@ a {
 
     /* Adjust hero for mobile */
     .hero-native {
-        min-height: 20vh;
-        /* Shallower photo section */
-        aspect-ratio: 21 / 9;
-        /* Wider aspect for mobile */
+        min-height: auto;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        /* Natural aspect ratio of the photo */
+        background-size: cover;
         padding: 0;
+    }
+
+    .hero-vignette {
+        display: none;
     }
 
     .hero-reviews {
