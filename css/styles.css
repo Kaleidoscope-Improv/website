@@ -351,7 +351,7 @@ a {
     position: relative;
     margin-top: 80px;
     /* Offset for fixed navbar height */
-    background: url('../assets/bg-hero-alternative.jpg') center bottom / contain no-repeat;
+    background: url('../assets/hero.jpg') center bottom / contain no-repeat;
     width: 100%;
     min-height: 70vh;
     /* Keep the 70vh height preference */
@@ -364,8 +364,9 @@ a {
 .hero-reviews {
     background-color: #000;
     padding: 1rem 0;
-    /* Updated for scrolling row */
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    /* Removed subtle border causing "white line" reported by user */
+    margin-top: -1px;
+    /* Eliminate any sub-pixel gap exposing white body background */
     width: 100%;
 }
 
