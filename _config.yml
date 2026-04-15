@@ -1,0 +1,1 @@
+exclude: ["update_reviews.py", "check_tsv.py", "test.js"]
