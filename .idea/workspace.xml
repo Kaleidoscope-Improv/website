@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +67,15 @@
       <workItem from="1774279306765" duration="6444000" />
       <workItem from="1774296052672" duration="604000" />
       <workItem from="1774882097262" duration="2623000" />
-      <workItem from="1777733277249" duration="802000" />
+      <workItem from="1777733277249" duration="1746000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add jekyll config file. Don't host test / python files" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

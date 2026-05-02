@@ -1,9 +1,12 @@
 // Google Sheets Configuration
-// Instructions:
-// 1. Create a Google Sheet with columns: title, date (e.g. DD/MM/YYYY), venue, time, ticketLink
-// 2. Share the sheet: File > Share > Publish to web (Entire Document as Web Page or CSV).
-// 3. Copy the ID from the URL (the part between /d/ and /edit).
+// Shows Sheet:
+// Columns: title, date (DD/MM/YYYY), venue, time, ticketLink
 const GOOGLE_SHEET_ID = '2PACX-1vTMlSM8Zk6bXrftMZ-Pj0o-Ddod1ANoWDMol2vLQRapze1aU_T0-eSWN5mfprsWKDL5aYCS1AdSnHxR';
+
+// Reviews Sheet:
+// Columns: review, size (xl/l/m/s/xs — optional, defaults to 'm'), style (text-dark/text-light — optional, defaults to 'text-dark')
+// Instructions: Publish your reviews Google Sheet tab to web as CSV/TSV and paste the ID portion below.
+const REVIEWS_SHEET_ID = '2PACX-1vR_ORGP_ysVDqfLrn3inGl0DtrBCbMfqZDUtUJaoC3dMSg7psNu9DMJoJpKCKNUppTRjJige_2zfvLj';
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. UI Setup
@@ -14,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Fetch Shows
     fetchShows();
+
+    // 3. Fetch Reviews
+    fetchReviews();
 });
 
 // Fetch shows from Google Sheets
@@ -178,6 +184,109 @@ function renderFallbackShows() {
 
     // Trigger animations for manually injected content
     setTimeout(setupIntersectionObservers, 100);
+}
+
+// --- Reviews ---
+
+async function fetchReviews() {
+    const marqueeContainer = document.querySelector('.hero-reviews.marquee-container');
+    if (!marqueeContainer) return;
+
+    if (REVIEWS_SHEET_ID === 'YOUR_REVIEWS_SHEET_ID_HERE') {
+        renderFallbackReviews(marqueeContainer);
+        return;
+    }
+
+    try {
+        const isPublishedId = REVIEWS_SHEET_ID.startsWith('2PACX');
+        const url = isPublishedId
+            ? `https://docs.google.com/spreadsheets/d/e/${REVIEWS_SHEET_ID}/pub?output=tsv`
+            : `https://docs.google.com/spreadsheets/d/${REVIEWS_SHEET_ID}/export?format=tsv`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP-Error: ' + response.status);
+        const text = await response.text();
+
+        const lines = text.split('\n').filter(line => line.trim().length > 0);
+        if (lines.length < 2) throw new Error('Sheet is empty or missing headers');
+
+        const headers = lines[0].split('\t').map(h => h.toLowerCase().trim().replace('\r', ''));
+        const reviewIdx = headers.indexOf('review');
+        const sizeIdx = headers.indexOf('size');
+        const styleIdx = headers.indexOf('style');
+
+        if (reviewIdx === -1) throw new Error("No 'review' column found in sheet");
+
+        const reviews = [];
+        for (let i = 1; i < lines.length; i++) {
+            const row = lines[i].split('\t').map(c => c.trim().replace('\r', ''));
+            if (row.length === 1 && row[0] === '') continue;
+            const review = row[reviewIdx];
+            if (!review) continue;
+            const size = sizeIdx !== -1 && row[sizeIdx] ? row[sizeIdx] : 'm';
+            const style = styleIdx !== -1 && row[styleIdx] ? row[styleIdx] : 'text-dark';
+            reviews.push({ review, size, style });
+        }
+
+        if (reviews.length === 0) {
+            renderFallbackReviews(marqueeContainer);
+            return;
+        }
+
+        injectMarqueeReviews(marqueeContainer, reviews);
+
+    } catch (error) {
+        console.warn('Error fetching reviews from Google Sheets, using fallback:', error);
+        renderFallbackReviews(marqueeContainer);
+    }
+}
+
+function generateReviewCard(review, size, style) {
+    return `
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <div class="rev ${style} size-${size}">${review}</div>
+        </div>
+    `;
+}
+
+function injectMarqueeReviews(container, reviews) {
+    const logoCard = `
+        <div class="review-card logo-card">
+            <img src="assets/kaleido_text_logo.png" alt="Kaleidoscope Logo" class="hero-image-logo">
+        </div>
+    `;
+
+    let cardsHtml = '';
+    const midpoint = Math.floor(reviews.length / 2);
+    reviews.forEach((r, i) => {
+        cardsHtml += generateReviewCard(r.review, r.size, r.style);
+        if (i === midpoint) cardsHtml += logoCard;
+    });
+
+    container.innerHTML =
+        `<div class="marquee-content">${cardsHtml}</div>` +
+        `<div class="marquee-content" aria-hidden="true">${cardsHtml}</div>`;
+}
+
+function renderFallbackReviews(container) {
+    const fallbackReviews = [
+        { review: '"HILARIOUS CRAZY FUN!"',                    size: 'l',  style: 'text-dark'  },
+        { review: '"FILLED WITH LOVE."',                       size: 'm',  style: 'text-light' },
+        { review: '"AMAZINGLY TALENTED"',                      size: 'm',  style: 'text-light' },
+        { review: '"BROADWAY AT ITS BEST!"',                   size: 'l',  style: 'text-dark'  },
+        { review: '"YOU WILL LAUGH TILL YOUR STOMACH HURTS"',  size: 'm',  style: 'text-light' },
+        { review: '"JOYOUS"',                                  size: 'xl', style: 'text-dark'  },
+        { review: '"AN ABSOLUTE TREAT"',                       size: 'l',  style: 'text-light' },
+        { review: '"RIOTOUSLY FUNNY,<br>INCREDIBLY CLEVER"',  size: 'm',  style: 'text-dark'  },
+        { review: '"PURE MAGIC ON STAGE"',                     size: 'l',  style: 'text-dark'  },
+        { review: '"KALEIDOSCOPE WILL ROCK YOUR SOCKS OFF"',   size: 'm',  style: 'text-dark'  },
+        { review: '"AMAZING!"',                                size: 'xl', style: 'text-light' },
+        { review: '"A TREASURE OF CREATIVITY"',               size: 'm',  style: 'text-dark'  },
+        { review: '"ELECTRIC"',                                size: 'xl', style: 'text-dark'  },
+        { review: '"WUNDERBAR"',                               size: 'l',  style: 'text-light' },
+    ];
+    injectMarqueeReviews(container, fallbackReviews);
 }
 
 // --- UI Logic ---
