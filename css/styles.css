@@ -564,6 +564,53 @@ a {
     font-size: 1.8rem;
 }
 
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    background: var(--text-light);
+    color: #ffffff;
+    border-color: var(--text-light);
+}
+
+#social-instagram:hover  { background: #e1306c; border-color: #e1306c; color: #fff; }
+#social-facebook:hover   { background: #1877f2; border-color: #1877f2; color: #fff; }
+#social-youtube:hover    { background: #ff0000; border-color: #ff0000; color: #fff; }
+#social-tiktok:hover     { background: #010101; border-color: #010101; color: #fff; }
+#social-newsletter:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* Footer social buttons — inverted for dark background */
+.footer-social .social-btn {
+    color: #cccccc;
+    border-color: #cccccc;
+}
+
+#footer-social-instagram:hover  { background: #e1306c; border-color: #e1306c; color: #fff; }
+#footer-social-facebook:hover   { background: #1877f2; border-color: #1877f2; color: #fff; }
+#footer-social-youtube:hover    { background: #ff0000; border-color: #ff0000; color: #fff; }
+#footer-social-tiktok:hover     { background: #cccccc; border-color: #cccccc; color: #111; }
+#footer-social-newsletter:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+
 /* Shows Grid */
 .shows-grid {
     display: grid;
@@ -737,6 +784,10 @@ a {
 .footer-links h4 {
     margin-bottom: 1rem;
     color: #ffffff;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .footer-newsletter p {
