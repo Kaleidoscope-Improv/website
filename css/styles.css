@@ -6,6 +6,38 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('../assets/NeueMachina-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../assets/GlacialIndifference-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../assets/GlacialIndifference-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('../assets/GlacialIndifference-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
     /* Color Palette - Original Wix Scheme */
     --bg-dark: #ffffff;
@@ -32,6 +64,7 @@
     --font-nav: 'Space Grotesk', sans-serif;
     --font-label: 'Raleway', sans-serif;
     --font-display: 'Oswald', sans-serif;
+    --font-paragraph: 'Neue Machina', sans-serif;
 
     /* Transitions */
     --transition-fast: 0.2s ease;
@@ -51,7 +84,7 @@ html {
 body {
     background-color: var(--bg-dark);
     color: var(--text-light);
-    font-family: var(--font-body);
+    font-family: var(--font-paragraph);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -68,11 +101,12 @@ h4 {
     letter-spacing: -0.02em;
 }
 
-/* Ensure all paragraph and body copy uses Space Grotesk sitewide */
+/* Ensure all paragraph and body copy uses Neue Machina sitewide */
 p,
 li,
 span:not(.kaleido-text span) {
-    font-family: var(--font-body);
+    font-family: var(--font-paragraph);
+    font-weight: 300;
 }
 
 .gradient-text {
@@ -513,7 +547,7 @@ a {
     color: var(--text-muted);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    font-family: var(--font-body);
+    font-family: var(--font-paragraph);
     line-height: 1.8;
 }
 
@@ -521,7 +555,7 @@ a {
     color: var(--text-light);
     font-size: 1.3rem;
     font-weight: 400;
-    font-family: var(--font-body);
+    font-family: var(--font-paragraph);
 }
 
 .about-visual h3 {
@@ -561,14 +595,15 @@ a {
     text-transform: uppercase;
     font-size: 0.9rem;
     color: var(--primary);
-    font-weight: 800;
+    font-weight: 300;
     letter-spacing: 2px;
+    font-family: 'Neue Machina', sans-serif;
 }
 
 .show-date .day {
     font-size: 2.5rem;
-    font-weight: 600;
-    font-family: var(--font-heading);
+    font-weight: 300;
+    font-family: 'Neue Machina', sans-serif;
     line-height: 1;
 }
 
@@ -580,6 +615,8 @@ a {
 .show-details h3 {
     margin-bottom: 0.2rem;
     font-size: 1.5rem;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-weight: 400;
 }
 
 .show-meta {
