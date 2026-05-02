@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Kaleidoscope Improv Berlin</title>
+    <meta name="description" content="Impressum von Kaleidoscope GbR – Angaben gemäß § 5 TMG.">
+    <meta name="robots" content="noindex">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@300;400;600&family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <style>
+        .legal-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
+        }
+
+        .legal-page h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .legal-page h2 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .legal-page p,
+        .legal-page address {
+            font-family: var(--font-paragraph);
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-style: normal;
+        }
+
+        .legal-page a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .legal-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-family: var(--font-paragraph);
+            font-weight: 300;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .legal-back:hover {
+            color: var(--primary);
+        }
+
+        .legal-divider {
+            border: none;
+            border-top: 1px solid var(--bg-darker);
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/kaleido_logo.png" alt="Kaleidoscope Logo"
+                    onerror="this.src=''; this.alt='KALEIDOSCOPE'; this.className='text-logo'">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#shows" class="nav-link">Upcoming Shows</a></li>
+                <li><a href="index.html#cast" class="nav-link">The Company</a></li>
+                <li><a href="https://dashboard.mailerlite.com/forms/320406/79547962714228531/share" target="_blank" rel="noopener noreferrer" class="nav-link btn-primary">Newsletter</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="legal-page">
+        <a href="index.html" class="legal-back">
+            <i class="fa-solid fa-arrow-left"></i> Back to Home
+        </a>
+
+        <br>
+        <h1 class="kaleido-text">Impressum</h1>
+
+        <h2>Kaleidoscope GbR</h2>
+        <p>
+            Addresse:<br>
+            Katie Love<br>
+            Rudolfstr. 14<br>
+            10245 Berlin, Deutschland<br>
+            <br>
+            Email: <a href="mailto:kaleidoscopeimprov@gmail.com">kaleidoscopeimprov@gmail.com</a><br>
+            <br>
+            Katie Love<br>
+            Steuer-ID: 35/532/04844
+        </p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="connect">
+        <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+            <p>&copy; <span id="year"></span> Kaleidoscope Improv Berlin. All rights reserved.</p>
+            <a href="index.html" class="back-to-top">Back to Home ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileBtn.classList.toggle('active');
+            });
+        }
+
+        // Kaleido text effect
+        document.querySelectorAll('.kaleido-text').forEach(el => {
+            const text = el.textContent;
+            el.textContent = '';
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (char.trim() === '') {
+                    el.appendChild(document.createTextNode(char));
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    el.appendChild(span);
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
