@@ -385,7 +385,7 @@ a {
     position: relative;
     margin-top: 80px;
     /* Offset for fixed navbar height */
-    background: url('../assets/hero.jpg') center bottom / contain no-repeat;
+    background: url('../assets/hero.webp') center bottom / contain no-repeat;
     width: 100%;
     min-height: 70vh;
     /* Keep the 70vh height preference */

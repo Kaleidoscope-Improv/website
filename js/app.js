@@ -253,7 +253,7 @@ function generateReviewCard(review, size, style) {
 function injectMarqueeReviews(container, reviews) {
     const logoCard = `
         <div class="review-card logo-card">
-            <img src="assets/kaleido_text_logo.png" alt="Kaleidoscope Logo" class="hero-image-logo">
+            <img src="assets/kaleido_text_logo.webp" alt="Kaleidoscope Logo" class="hero-image-logo">
         </div>
     `;
 
