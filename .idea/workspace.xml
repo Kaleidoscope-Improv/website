@@ -4,32 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="Add favicon">
+    <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="Compress resources">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/about_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bg-hero-alternative.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/bg-hero-alternative.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/hero.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/kaleido_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/kaleido_logo_full.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/kaleido_text_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/quotes_shoes_banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/angie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/brian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/caroline.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/jason.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/jenna.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/joseph.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/juan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/katie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/michelle.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/paolo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/taylor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/team/tina.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/impressum.html" beforeDir="false" afterPath="$PROJECT_DIR$/impressum.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/privacy-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-policy.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +70,7 @@
       <workItem from="1774882097262" duration="2623000" />
       <workItem from="1777733277249" duration="6139000" />
       <workItem from="1778013157383" duration="2737000" />
-      <workItem from="1778188816423" duration="5000" />
+      <workItem from="1778188816423" duration="999000" />
     </task>
     <task id="LOCAL-00001" summary="Add live reviews">
       <option name="closed" value="true" />
@@ -182,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778015430311</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Compress resources">
+      <option name="closed" value="true" />
+      <created>1778188853315</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1778188853315</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +183,7 @@
     <MESSAGE value="Add social links for company" />
     <MESSAGE value="Fix main copy" />
     <MESSAGE value="Add favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add favicon" />
+    <MESSAGE value="Compress resources" />
+    <option name="LAST_COMMIT_MESSAGE" value="Compress resources" />
   </component>
 </project>
