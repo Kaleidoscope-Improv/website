@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="Compress resources">
+    <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="Add Google Analytics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/impressum.html" beforeDir="false" afterPath="$PROJECT_DIR$/impressum.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -70,7 +70,7 @@
       <workItem from="1774882097262" duration="2623000" />
       <workItem from="1777733277249" duration="6139000" />
       <workItem from="1778013157383" duration="2737000" />
-      <workItem from="1778188816423" duration="999000" />
+      <workItem from="1778188816423" duration="2567000" />
     </task>
     <task id="LOCAL-00001" summary="Add live reviews">
       <option name="closed" value="true" />
@@ -168,7 +168,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778188853315</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update newsletter">
+      <option name="closed" value="true" />
+      <created>1778190387891</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1778190387891</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add Google Analytics">
+      <option name="closed" value="true" />
+      <created>1778191310657</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1778191310657</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +200,8 @@
     <MESSAGE value="Fix main copy" />
     <MESSAGE value="Add favicon" />
     <MESSAGE value="Compress resources" />
-    <option name="LAST_COMMIT_MESSAGE" value="Compress resources" />
+    <MESSAGE value="Update newsletter" />
+    <MESSAGE value="Add Google Analytics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Google Analytics" />
   </component>
 </project>
