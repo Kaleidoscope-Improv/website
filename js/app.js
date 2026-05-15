@@ -15,11 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     setupKaleidoText();
     // document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 2. Fetch Shows
-    fetchShows();
+    // 2. Fetch Data asynchronously without blocking the main thread
+    // Using setTimeout defers execution until the call stack is clear,
+    // allowing the browser to paint the initial UI first.
+    setTimeout(() => {
+        // Fetch Shows
+        fetchShows();
 
-    // 3. Fetch Reviews
-    fetchReviews();
+        // Fetch Reviews
+        fetchReviews();
+    }, 0);
 });
 
 // Fetch shows from Google Sheets
