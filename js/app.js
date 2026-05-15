@@ -40,10 +40,10 @@ async function fetchShows() {
     try {
         const isPublishedId = GOOGLE_SHEET_ID.startsWith('2PACX');
         const url = isPublishedId
-            ? `https://docs.google.com/spreadsheets/d/e/${GOOGLE_SHEET_ID}/pub?output=tsv`
-            : `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=tsv`;
+            ? `https://docs.google.com/spreadsheets/d/e/${GOOGLE_SHEET_ID}/pub?output=tsv&cb=${Date.now()}`
+            : `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/export?format=tsv&cb=${Date.now()}`;
 
-        const response = await fetch(url);
+        const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) throw new Error("HTTP-Error: " + response.status);
         const text = await response.text();
 
@@ -205,10 +205,10 @@ async function fetchReviews() {
     try {
         const isPublishedId = REVIEWS_SHEET_ID.startsWith('2PACX');
         const url = isPublishedId
-            ? `https://docs.google.com/spreadsheets/d/e/${REVIEWS_SHEET_ID}/pub?output=tsv`
-            : `https://docs.google.com/spreadsheets/d/${REVIEWS_SHEET_ID}/export?format=tsv`;
+            ? `https://docs.google.com/spreadsheets/d/e/${REVIEWS_SHEET_ID}/pub?output=tsv&cb=${Date.now()}`
+            : `https://docs.google.com/spreadsheets/d/${REVIEWS_SHEET_ID}/export?format=tsv&cb=${Date.now()}`;
 
-        const response = await fetch(url);
+        const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) throw new Error('HTTP-Error: ' + response.status);
         const text = await response.text();
 
