@@ -11,7 +11,6 @@ const REVIEWS_SHEET_ID = '2PACX-1vR_ORGP_ysVDqfLrn3inGl0DtrBCbMfqZDUtUJaoC3dMSg7
 document.addEventListener('DOMContentLoaded', () => {
     // 1. UI Setup
     setupIntersectionObservers();
-    setupNavbar();
     setupKaleidoText();
     // document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -295,35 +294,6 @@ function renderFallbackReviews(container) {
 }
 
 // --- UI Logic ---
-
-function setupNavbar() {
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile menu toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (mobileBtn && navLinks) {
-        mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileBtn.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileBtn.classList.remove('active');
-            });
-        });
-    }
-}
 
 function setupKaleidoText() {
     const elements = document.querySelectorAll('.kaleido-text');

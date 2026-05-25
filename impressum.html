@@ -98,6 +98,8 @@
             margin: 2rem 0;
         }
     </style>
+    <!-- Site Navbar -->
+    <script src="js/navbar.js" defer></script>
 </head>
 
 <body>
@@ -105,26 +107,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8LK9695"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/kaleido_logo.webp" alt="Kaleidoscope Logo"
-                    onerror="this.src=''; this.alt='KALEIDOSCOPE'; this.className='text-logo'">
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html#about" class="nav-link">About</a></li>
-                <li><a href="index.html#shows" class="nav-link">Upcoming Shows</a></li>
-                <li><a href="index.html#cast" class="nav-link">The Company</a></li>
-                <li><a href="https://kaleidoscope-improv.us17.list-manage.com/subscribe?u=deb83251866b51d2f963230ce&id=e0cdb9cdbc" target="_blank" rel="noopener noreferrer" class="nav-link btn-primary">Newsletter</a></li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Component -->
+    <site-navbar></site-navbar>
 
     <main class="legal-page">
         <a href="index.html" class="legal-back">
@@ -158,22 +142,6 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Mobile menu
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        if (mobileBtn && navLinks) {
-            mobileBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                mobileBtn.classList.toggle('active');
-            });
-        }
 
         // Kaleido text effect
         document.querySelectorAll('.kaleido-text').forEach(el => {

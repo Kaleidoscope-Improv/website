@@ -61,6 +61,8 @@
     <!-- Font Awesome (icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <!-- Site Navbar -->
+    <script src="js/navbar.js" defer></script>
 </head>
 
 <body>
@@ -68,27 +70,8 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8LK9695" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="assets/kaleido_logo.webp" alt="Kaleidoscope Logo"
-                    onerror="this.src=''; this.alt='KALEIDOSCOPE'; this.className='text-logo'">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#shows" class="nav-link">Upcoming Shows</a></li>
-                <li><a href="#cast" class="nav-link">The Company</a></li>
-                <li><a href="https://kaleidoscope-improv.us17.list-manage.com/subscribe?u=deb83251866b51d2f963230ce&id=e0cdb9cdbc"
-                        target="_blank" rel="noopener noreferrer" class="nav-link btn-primary">Newsletter</a></li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Component -->
+    <site-navbar></site-navbar>
 
     <!-- Hero Section -->
     <header class="hero hero-native fade-in" id="home">
@@ -183,6 +166,16 @@
                     <p>Fetching performance dates...</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section fade-in" id="reviews-iframe">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title kaleido-text">REVIEWS </h2>
+            </div>
+            <iframe src="https://www.yesticket.org/yesticket_testimonials.php?organizer_select=906&entries=14&setlang=en&bg_color=FFFFFF&text_color=000000&sec=e7994ff5540a3ef07483c523146d9076&event_type=all&rand=0" name="Testimonials" scrolling="auto" width="100%" height="500" frameBorder="0"></iframe>
         </div>
     </section>
 
