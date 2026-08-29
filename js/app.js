@@ -26,6 +26,246 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0);
 });
 
+// Venue lookup for enriched Schema.org Structured Data
+const VENUE_DETAILS = [
+    {
+        pattern: /improvworks/i,
+        name: 'ImprovWorks Berlin',
+        streetAddress: 'Rudolfstraße 14',
+        postalCode: '10245',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /comedy caf[eé]/i,
+        name: 'Comedy Café Berlin',
+        streetAddress: 'Roseggerstraße 17',
+        postalCode: '12059',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /monbijou/i,
+        name: 'Monbijou Märchenhütten',
+        streetAddress: 'Monbijouplatz',
+        postalCode: '10178',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /english theatre/i,
+        name: 'English Theatre Berlin',
+        streetAddress: 'Fidicinstraße 40',
+        postalCode: '10965',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /brotfabrik/i,
+        name: 'Brotfabrik Berlin',
+        streetAddress: 'Caligariplatz 1',
+        postalCode: '13086',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /bühnenrausch/i,
+        name: 'Theater BühnenRausch',
+        streetAddress: 'Erich-Weinert-Straße 27',
+        postalCode: '10439',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    },
+    {
+        pattern: /alte feuerwache/i,
+        name: 'Alte Feuerwache',
+        streetAddress: 'Marchlewskistraße 6',
+        postalCode: '10243',
+        addressLocality: 'Berlin',
+        addressCountry: 'DE'
+    }
+];
+
+function getVenueLocation(venueString) {
+    const trimmed = (venueString || '').trim();
+    for (const v of VENUE_DETAILS) {
+        if (v.pattern.test(trimmed)) {
+            return {
+                '@type': 'Place',
+                'name': v.name,
+                'address': {
+                    '@type': 'PostalAddress',
+                    'streetAddress': v.streetAddress,
+                    'addressLocality': v.addressLocality,
+                    'postalCode': v.postalCode,
+                    'addressCountry': v.addressCountry
+                }
+            };
+        }
+    }
+
+    return {
+        '@type': 'Place',
+        'name': trimmed || 'Berlin',
+        'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': 'Berlin',
+            'addressCountry': 'DE'
+        }
+    };
+}
+
+// Parse date and time into a Date object
+function parseShowDateTime(dateVal, timeVal) {
+    if (!dateVal) return null;
+    let day, month, year;
+
+    const dateParts = dateVal.includes('/') ? dateVal.split('/') : (dateVal.includes('.') ? dateVal.split('.') : null);
+    if (dateParts && dateParts.length === 3) {
+        day = parseInt(dateParts[0], 10);
+        month = parseInt(dateParts[1], 10) - 1; // 0-indexed
+        year = parseInt(dateParts[2], 10);
+        if (year < 100) year += 2000;
+    } else if (dateVal.includes('-')) {
+        const isoParts = dateVal.split('-');
+        if (isoParts.length === 3) {
+            year = parseInt(isoParts[0], 10);
+            month = parseInt(isoParts[1], 10) - 1;
+            day = parseInt(isoParts[2], 10);
+        }
+    }
+
+    if (day === undefined || isNaN(day) || isNaN(month) || isNaN(year)) {
+        const d = new Date(dateVal);
+        if (isNaN(d.getTime())) return null;
+        day = d.getDate();
+        month = d.getMonth();
+        year = d.getFullYear();
+    }
+
+    let hours = 20;
+    let minutes = 0;
+
+    if (timeVal && typeof timeVal === 'string' && timeVal.trim()) {
+        const cleanTime = timeVal.trim().toLowerCase();
+        const isPM = cleanTime.includes('pm');
+        const isAM = cleanTime.includes('am');
+        const match = cleanTime.match(/(\d{1,2})[:.]?(\d{2})?/);
+        if (match) {
+            let h = parseInt(match[1], 10);
+            const m = match[2] ? parseInt(match[2], 10) : 0;
+            if (isPM && h < 12) h += 12;
+            if (isAM && h === 12) h = 0;
+            if (h >= 0 && h <= 23 && m >= 0 && m <= 59) {
+                hours = h;
+                minutes = m;
+            }
+        }
+    }
+
+    return new Date(year, month, day, hours, minutes, 0);
+}
+
+// Format ISO 8601 with local Berlin timezone offset (+01:00 or +02:00)
+function formatISOWithTimezone(date) {
+    const pad = (num) => String(num).padStart(2, '0');
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
+    const seconds = pad(date.getSeconds());
+
+    // Calculate Berlin timezone offset
+    const getBerlinOffset = (d) => {
+        try {
+            const utcDate = new Date(d.toLocaleString('en-US', { timeZone: 'UTC' }));
+            const tzDate = new Date(d.toLocaleString('en-US', { timeZone: 'Europe/Berlin' }));
+            const diffMinutes = Math.round((tzDate.getTime() - utcDate.getTime()) / 60000);
+            const sign = diffMinutes >= 0 ? '+' : '-';
+            const absDiff = Math.abs(diffMinutes);
+            const offsetHours = pad(Math.floor(absDiff / 60));
+            const offsetMins = pad(absDiff % 60);
+            return `${sign}${offsetHours}:${offsetMins}`;
+        } catch (e) {
+            return '+01:00';
+        }
+    };
+
+    const offset = getBerlinOffset(date);
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${offset}`;
+}
+
+// Dynamic Schema.org JSON-LD injection for upcoming shows
+function updateStructuredData(shows) {
+    if (!shows || !Array.isArray(shows) || shows.length === 0) return;
+
+    const eventSchemas = shows.map((show, idx) => {
+        const startISO = formatISOWithTimezone(show.date);
+        const endDate = new Date(show.date.getTime() + 2 * 60 * 60 * 1000); // 2 hours duration
+        const endISO = formatISOWithTimezone(endDate);
+        const location = getVenueLocation(show.venue);
+
+        const eventName = show.title
+            ? (show.title.toLowerCase().includes('kaleidoscope') ? show.title : `Kaleidoscope: ${show.title}`)
+            : 'Kaleidoscope: An Improvised Musical';
+
+        const schema = {
+            '@type': 'TheaterEvent',
+            '@id': `https://kaleidoscope-improv.com/#event-${show.date.toISOString().split('T')[0]}-${idx}`,
+            'name': eventName,
+            'description': 'Experience Kaleidoscope, Berlin\'s premier unscripted musical improv comedy show. A full two-act improvised musical created live on stage.',
+            'startDate': startISO,
+            'endDate': endISO,
+            'eventStatus': 'https://schema.org/EventScheduled',
+            'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+            'location': location,
+            'image': [
+                'https://kaleidoscope-improv.com/assets/kaleido_logo_full.webp',
+                'https://kaleidoscope-improv.com/assets/about_graphic.webp'
+            ],
+            'performer': {
+                '@type': 'PerformingGroup',
+                'name': 'Kaleidoscope',
+                'url': 'https://kaleidoscope-improv.com/',
+                '@id': 'https://kaleidoscope-improv.com/#organization'
+            },
+            'organizer': {
+                '@type': 'Organization',
+                'name': 'Kaleidoscope GbR',
+                'url': 'https://kaleidoscope-improv.com/',
+                '@id': 'https://kaleidoscope-improv.com/#organization'
+            }
+        };
+
+        if (show.ticketLink && show.ticketLink !== '#' && show.ticketLink.startsWith('http')) {
+            schema.offers = {
+                '@type': 'Offer',
+                'url': show.ticketLink,
+                'availability': 'https://schema.org/InStock',
+                'priceCurrency': 'EUR'
+            };
+        }
+
+        return schema;
+    });
+
+    let scriptTag = document.getElementById('schema-events');
+    if (!scriptTag) {
+        scriptTag = document.createElement('script');
+        scriptTag.id = 'schema-events';
+        scriptTag.type = 'application/ld+json';
+        document.head.appendChild(scriptTag);
+    }
+
+    const structuredData = {
+        '@context': 'https://schema.org',
+        '@graph': eventSchemas
+    };
+
+    scriptTag.textContent = JSON.stringify(structuredData, null, 2);
+}
+
 // Fetch shows from Google Sheets
 async function fetchShows() {
     const showsContainer = document.getElementById('shows-container');
@@ -71,20 +311,7 @@ async function fetchShows() {
             const ticketLink = linkIdx !== -1 && row[linkIdx] ? row[linkIdx] : '#';
 
             const dateVal = dateIdx !== -1 && row[dateIdx] ? row[dateIdx] : null;
-            let showDate = null;
-
-            if (dateVal) {
-                // Support DD/MM/YYYY or DD.MM.YYYY format
-                const dateParts = dateVal.includes('/') ? dateVal.split('/') : dateVal.split('.');
-                if (dateParts.length === 3) {
-                    const day = parseInt(dateParts[0], 10);
-                    const month = parseInt(dateParts[1], 10) - 1; // JS months are 0-11
-                    const year = parseInt(dateParts[2], 10);
-                    showDate = new Date(year, month, day);
-                } else {
-                    showDate = new Date(dateVal);
-                }
-            }
+            const showDate = parseShowDateTime(dateVal, time);
 
             if (showDate && !isNaN(showDate.getTime()) && showDate >= now) {
                 shows.push({ title, date: showDate, venue, time, ticketLink });
@@ -110,6 +337,9 @@ async function fetchShows() {
         });
 
         showsContainer.innerHTML = html;
+
+        // Update Structured Data for Google Rich Results
+        updateStructuredData(shows);
 
         // Trigger animations for dynamically injected content
         setTimeout(setupIntersectionObservers, 100);
@@ -185,6 +415,9 @@ function renderFallbackShows() {
     html += `<p style="grid-column:1/-1; text-align:center; font-size:0.8rem; color:var(--text-muted); opacity: 0.5;">(Example data. Connect your Google Sheet to load dynamically.)</p>`;
 
     showsContainer.innerHTML = html;
+
+    // Update Structured Data for Google Rich Results
+    updateStructuredData(dummyShows);
 
     // Trigger animations for manually injected content
     setTimeout(setupIntersectionObservers, 100);

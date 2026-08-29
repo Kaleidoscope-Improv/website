@@ -63,6 +63,51 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- Site Navbar -->
     <script src="js/navbar.js" defer></script>
+
+    <!-- Structured Data (Schema.org / JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["PerformingGroup", "TheaterGroup"],
+          "@id": "https://kaleidoscope-improv.com/#organization",
+          "name": "Kaleidoscope",
+          "alternateName": "Kaleidoscope Improv",
+          "legalName": "Kaleidoscope GbR",
+          "url": "https://kaleidoscope-improv.com/",
+          "logo": "https://kaleidoscope-improv.com/assets/kaleido_logo_full.webp",
+          "image": "https://kaleidoscope-improv.com/assets/kaleido_logo_full.webp",
+          "description": "Berlin's premier unscripted musical improv comedy show. A powerhouse ensemble weaving two-act, completely unscripted musicals out of thin air based on audience suggestions.",
+          "email": "hello@kaleidoscope-improv.com",
+          "location": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Berlin",
+              "addressCountry": "DE"
+            }
+          },
+          "sameAs": [
+            "https://www.instagram.com/kaleidoscope.improv/",
+            "https://www.tiktok.com/@kaleidoscopeimprov",
+            "https://www.facebook.com/kaleidoscopeimprovberlin/",
+            "https://www.youtube.com/@kaleidoscopeimprov"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://kaleidoscope-improv.com/#website",
+          "name": "Kaleidoscope | Musical Improv Berlin",
+          "url": "https://kaleidoscope-improv.com/",
+          "description": "Welcome to Kaleidoscope! The unscripted and unforgettable musical selling out theaters in Berlin.",
+          "publisher": {
+            "@id": "https://kaleidoscope-improv.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
