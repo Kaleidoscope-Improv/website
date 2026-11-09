@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4ad40076-5cf0-4d03-9775-54d573c0af51" name="Changes" comment="Add Google Analytics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/impressum.html" beforeDir="false" afterPath="$PROJECT_DIR$/impressum.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-policy.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +16,65 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0000004297497094" />
+      <entry key="MS500" value="1.0532896807354972" />
+      <entry key="S2" value="1.480463919230517" />
+      <entry key="S5" value="1.7458720133457328" />
+      <entry key="S10" value="1.8636388211201096" />
+      <entry key="S30" value="1.952307896078334" />
+      <entry key="S60" value="1.975862642013892" />
+      <entry key="M2" value="1.9878576020934862" />
+      <entry key="M5" value="1.995125232809966" />
+      <entry key="M10" value="1.997559638723403" />
+      <entry key="M15" value="1.9983724300565366" />
+      <entry key="M30" value="1.999185883635541" />
+      <entry key="H1" value="1.9995928589358472" />
+      <entry key="H2" value="1.9997964087432236" />
+      <entry key="H4" value="1.9998981991899094" />
+      <entry key="D1" value="1.9999830324785925" />
+      <entry key="W1" value="1.999997576050744" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.8766057213221111" />
+      <entry key="MS500" value="0.9797154304510536" />
+      <entry key="S2" value="1.2683407720459734" />
+      <entry key="S5" value="1.593954668059455" />
+      <entry key="S10" value="1.7710731423746469" />
+      <entry key="S30" value="1.9170737823582438" />
+      <entry key="S60" value="1.957649348994731" />
+      <entry key="M2" value="1.978597988102991" />
+      <entry key="M5" value="1.9913841640258387" />
+      <entry key="M10" value="1.995682857429932" />
+      <entry key="M15" value="1.9971198511230053" />
+      <entry key="M30" value="1.9985588976638633" />
+      <entry key="H1" value="1.999279191673138" />
+      <entry key="H2" value="1.9996395315238085" />
+      <entry key="H4" value="1.9998197496808303" />
+      <entry key="D1" value="1.9999699560464108" />
+      <entry key="W1" value="1.9999957079519237" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -26,25 +83,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/paolorotolo/dev/projects/website&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "/Users/paolorotolo/dev/projects/kaleidowebsite",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets" />
@@ -53,7 +110,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-WS-261.23567.141" />
+        <option value="bundled-js-predefined-d6986cc7102b-56aff7b04f6f-JavaScript-WS-263.7307.202" />
       </set>
     </attachedChunks>
   </component>
@@ -71,6 +128,7 @@
       <workItem from="1777733277249" duration="6139000" />
       <workItem from="1778013157383" duration="2737000" />
       <workItem from="1778188816423" duration="2567000" />
+      <workItem from="1794261314707" duration="528000" />
     </task>
     <task id="LOCAL-00001" summary="Add live reviews">
       <option name="closed" value="true" />
